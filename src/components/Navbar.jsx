@@ -32,10 +32,10 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed lg:px-28 px-5 top-0 left-0 w-full z-50 bg-white p-5 transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
+      className={`fixed top-0 left-0 w-full z-50 bg-white py-4 transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
         }`}
     >
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="page-container flex justify-between items-center gap-4">
         <motion.img
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -77,8 +77,11 @@ export default function Navbar() {
         </motion.a>
 
         <motion.button
-          className="lg:hidden text-2xl"
-          onClick={() => setIsOpen(!isOpen)}
+          className="flex h-11 w-11 items-center justify-center text-2xl lg:hidden"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsOpen((open) => !open)}
           whileHover={{ scale: 1.2 }}
         >
           {isOpen ? <HiX /> : <HiOutlineMenu />}
@@ -89,26 +92,21 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
+            id="mobile-navigation"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed top-0 right-0 h-full w-full bg-white shadow"
+            className="absolute inset-x-0 top-full max-h-[calc(100dvh-5rem)] overflow-y-auto border-t bg-white shadow-md lg:hidden"
           >
-            <button
-              className="absolute top-5 right-5 text-2xl"
-              onClick={() => setIsOpen(false)}
-            >
-              <HiX />
-            </button>
-            <ul className="flex flex-col items-start ml-16 mt-28 h-full gap-y-6 font-semibold">
+            <ul className="page-container flex flex-col items-start gap-4 py-6 font-semibold">
               {["about", "skills", "projects", "contact"].map((section) => (
                 <motion.li
                   key={section}
                   className="border-b"
                   whileHover={{ scale: 1.1 }}
                 >
-                  <button onClick={() => scrollToSection(section)}>
+                  <button className="min-h-11 py-2" onClick={() => scrollToSection(section)}>
                     {section.charAt(0).toUpperCase() + section.slice(1)}
                   </button>
                 </motion.li>

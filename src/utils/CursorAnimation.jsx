@@ -39,7 +39,7 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed bg-white rounded-full pointer-events-none mix-blend-difference z-50"
+      className="fixed top-0 left-0 hidden bg-white rounded-full pointer-events-none mix-blend-difference z-50 [@media(hover:hover)_and_(pointer:fine)]:block"
       style={{ width: cursorSize, height: cursorSize }}
       animate={{ x: cursorPosition.x - cursorSize / 2, y: cursorPosition.y - cursorSize / 2 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}

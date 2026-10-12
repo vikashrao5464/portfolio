@@ -16,17 +16,17 @@ export default function Home() {
 
   return (
     <div className="mt-20" id="home">
-      <div className="flex justify-between py-10 items-center px-5 lg:px-28 lg:flex-row flex-col-reverse">
+      <div className="page-container flex flex-col-reverse items-center gap-8 py-8 sm:gap-10 sm:py-12 lg:flex-row lg:gap-12 lg:py-16">
 
         <motion.div
-          className="lg:w-[45%]"
+          className="w-full min-w-0 lg:flex-1"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
 
           <motion.div
-            className="text-2xl lg:text-5xl flex flex-col mt-8 lg:mt-0 gap-2 lg:gap-5 text-nowrap"
+            className="flex flex-col gap-2 break-words text-2xl leading-snug sm:text-4xl lg:gap-4 lg:text-[clamp(2rem,3.2vw,3rem)]"
             initial="hidden"
             animate="visible"
             variants={{
@@ -68,7 +68,7 @@ export default function Home() {
           </motion.div>
 
           <motion.p
-            className="text-[#71717A] text-sm lg:text-base mt-5"
+            className="mt-5 max-w-2xl text-sm leading-7 text-[#71717A] sm:text-base"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
@@ -77,7 +77,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            className="flex items-center gap-x-5 mt-10 lg:mt-14"
+            className="mt-8 flex flex-wrap items-center gap-4 lg:mt-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
@@ -89,7 +89,7 @@ export default function Home() {
                 aria-label={label}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="bg-white p-2 lg:p-3 rounded border-2 border-black"
+                className="flex h-11 w-11 items-center justify-center rounded border-2 border-black bg-white lg:h-12 lg:w-12"
                 whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -100,12 +100,16 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="lg:w-[55%] w-full"
+          className="flex w-full justify-center lg:w-[32%] lg:shrink-0"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
-          <img className="h-full w-full" src="/assets/vikash.jpeg" alt="Hero Vector" />
+          <img
+            className="h-auto w-full max-w-[220px] rounded-2xl sm:max-w-[260px] lg:max-w-[300px]"
+            src="/assets/vikash.jpeg"
+            alt="Vikash Rao"
+          />
         </motion.div>
       </div>
     </div>

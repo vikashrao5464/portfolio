@@ -54,7 +54,7 @@ const [skills] = useState([
 
   return (
     <div className="mt-3 lg:mt-16" id="skills">
-      <div className="px-5 lg:px-28">
+      <div className="page-container">
 
         <motion.h2
           className="text-2xl lg:text-4xl text-center"
@@ -67,11 +67,11 @@ const [skills] = useState([
         </motion.h2>
 
         {/* Skill Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 text-lg font-bold mt-7 lg:mt-16 w-full place-items-center gap-y-6 lg:gap-y-12">
+        <div className="mt-7 grid w-full grid-cols-2 justify-items-center gap-3 text-center text-sm font-bold sm:grid-cols-3 sm:gap-5 sm:text-base md:grid-cols-4 lg:mt-12 lg:gap-6 lg:text-lg xl:grid-cols-5">
           {skills.map((skill) => (
             <motion.div
               key={skill.id}
-              className="bg-white border-2 hover:bg-black hover:text-white transition-all cursor-pointer border-black rounded p-3 h-36 w-36 lg:h-44 lg:w-44 flex flex-col items-center justify-center gap-5"
+              className="flex h-36 w-full min-w-0 max-w-44 cursor-pointer flex-col items-center justify-center gap-4 rounded border-2 border-black bg-white p-3 transition-colors hover:bg-black hover:text-white sm:h-40 lg:h-44"
               initial={{ opacity: 0, y: 5 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: skill.id * 0.1 }}
@@ -98,7 +98,7 @@ const [skills] = useState([
         </motion.h2>
 
         {/* Experience Cards */}
-        <div className="px-5 lg:px-28 my-8 lg:mt-16 space-y-10">
+        <div className="page-container my-8 space-y-10 lg:mt-16">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.id}
@@ -113,14 +113,14 @@ const [skills] = useState([
               }}
               viewport={{ once: true }}
             >
-              <div className="flex justify-between flex-col items-start lg:flex-row lg:items-center">
-                <div className="flex items-center gap-5">
-                  <img className="w-7" src={exp.logo} alt="" />
-                  <h2 className="font-semibold text-white text-lg lg:text-xl">
+              <div className="flex flex-col items-start justify-between gap-4 xl:flex-row xl:items-center">
+                <div className="flex min-w-0 items-start gap-3 sm:items-center sm:gap-5">
+                  <img className="mt-1 w-7 shrink-0 sm:mt-0" src={exp.logo} alt="" />
+                  <h2 className="min-w-0 text-base font-semibold text-white sm:text-lg lg:text-xl">
                     {exp.role} at {exp.company}
                   </h2>
                 </div>
-                <span className="text-[#D4D4D8] font-semibold text-sm mt-4 lg:mt-0 lg:text-base">
+                <span className="shrink-0 text-sm font-semibold text-[#D4D4D8] lg:text-base">
                   {exp.period}
                 </span>
               </div>

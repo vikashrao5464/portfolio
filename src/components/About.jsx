@@ -3,25 +3,25 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <div className="px-5 lg:px-28 flex justify-between flex-col lg:flex-row" id="about">
+    <div className="page-container flex flex-col items-center gap-8 lg:flex-row lg:gap-12" id="about">
       <motion.div
-        className="lg:w-1/2"
+        className="w-full min-w-0 lg:flex-1"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 80, damping: 10 }}
         viewport={{ once: true }}
       >
-        <img src="/assets/about-me.svg" alt="About Me Illustration" />
+        <img className="mx-auto h-auto w-full max-w-sm lg:max-w-md" src="/assets/about-me.svg" alt="About Me Illustration" />
       </motion.div>
 
       <motion.div
-        className="lg:w-1/2"
+        className="w-full min-w-0 lg:flex-1"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 80, damping: 10, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <h2 className="lg:text-4xl text-2xl mt-4 lg:mt-0">
+        <h2 className="text-2xl lg:text-4xl">
           About <span className="font-extrabold">Me</span>
         </h2>
 

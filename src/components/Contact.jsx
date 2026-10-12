@@ -21,7 +21,7 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className='lg:my-16 lg:px-28 my-8 px-5'
+      className='page-container my-8 lg:my-16'
       id='contact'
     >
       <motion.h2
@@ -33,12 +33,12 @@ export default function Contact() {
         Contact <span className='font-extrabold'>Me</span>
       </motion.h2>
 
-      <div className='flex justify-between items-center mt-8 lg:mt-16 flex-col lg:flex-row'>
+      <div className='mt-8 grid items-center gap-10 lg:mt-16 lg:grid-cols-2 lg:gap-12'>
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className='lg:w-[40%]'
+          className='w-full min-w-0'
         >
           <form
             className='w-full space-y-3 lg:space-y-5'
@@ -55,17 +55,17 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className='flex justify-between gap-3 lg:gap-5 flex-col lg:flex-row'
+              className='flex flex-wrap items-center gap-4'
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 type='submit'
-                className='bg-black justify-center w-fit lg:w-auto lg:flex-1 hover:shadow-lg text-white px-3 py-2 rounded flex items-center gap-x-3 font-medium'
+                className='flex min-h-11 items-center justify-center gap-x-3 rounded bg-black px-4 py-2 font-medium text-white hover:shadow-lg'
               >
                 Get In Touch
               </motion.button>
 
-              <div className='flex items-center gap-x-2 lg:gap-x-5'>
+              <div className='flex items-center gap-3'>
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <motion.a
                     key={label}
@@ -73,7 +73,7 @@ export default function Contact() {
                     aria-label={label}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="bg-white p-2 lg:p-3 rounded border-2 border-black"
+                    className="flex h-11 w-11 items-center justify-center rounded border-2 border-black bg-white lg:h-12 lg:w-12"
                     whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -89,9 +89,9 @@ export default function Contact() {
           initial={{ x: 50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className='lg:w-1/2'
+          className='w-full min-w-0'
         >
-          <div className='font-extrabold text-2xl lg:text-5xl mt-5 lg:mt-0 space-y-1 lg:space-y-3'>
+          <div className='space-y-1 break-words text-2xl font-extrabold leading-snug sm:text-4xl lg:space-y-3 lg:text-[clamp(2rem,3.2vw,3rem)]'>
             <h2>Let's <span className='text-white' style={{ WebkitTextStroke: '1px black' }}>talk</span> for</h2>
             <h2>Something special</h2>
           </div>
@@ -101,10 +101,10 @@ export default function Contact() {
           <div className='font-semibold text-sm lg:text-xl flex flex-col mt-6 gap-2 lg:gap-4'>
             <motion.a
               whileHover={{ x: 5 }}
-              className='flex items-center gap-2 group'
+              className='group flex min-w-0 items-center gap-2 break-all'
               href="mailto:vikashrao5464@gmail.com"
             >
-              <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-1'>
+              <span className='shrink-0 rounded-full border-2 border-transparent p-1 transition-all group-hover:border-black'>
                 <IoMdMail className="w-4 h-4 lg:w-5 lg:h-5" />
               </span>
               vikashrao5464@gmail.com
